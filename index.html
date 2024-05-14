@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+ <title>小貓雜貨店</title>
+ <meta name="description" content="">
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link href="https://www.sheet2site.com/assets/css/page.css" rel="stylesheet">
+ <meta property="og:title" content="小貓雜貨店">
+ <meta property="og:description" content="歡迎各位來訂購各種水料、裝備喔">
+ <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Catgrocery/Catgrocery.github.io/image/catstore.png">
+ <meta property="og:url" content="https://catgrocery.github.io/A">
+ <meta name="twitter:title" content="小貓雜貨店">
+ <meta name="twitter:description" content="">
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:image:src" content="https://cdn.jsdelivr.net/gh/Catgrocery/Catgrocery.github.io/image/catstore.png">
+ 
+ <script async src="https://www.googletagmanager.com/gtag/js?id=UA-51392658-21"></script>
+ <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+ <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="catstore.js"></script>
+ <link rel="stylesheet" href="catstore.css">
+ 
+
+ 
+
+
+
+
+<!-------------------------------購物車系統------------------------------
+
+	 <script type="text/javascript">
+		 var cart = [] ;
+		 cart[0][0]= "漢堡";
+		 function test()
+		 {
+			 alert(cart[0][0]);
+		 }
+
+	 </script>
+
+------------------------------購物車系統------------------------------->
+
+ <script type="text/javascript">
+		 //Global Variable
+		 var globalPage = 1;
+	 </script>
+
+ <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Faxey/Cat_Store/props/Web_Icon.png" type="image/x-icon">
+ <link rel="icon" href="https://cdn.jsdelivr.net/gh/Faxey/Cat_Store/props/Web_Icon.png" type="image/x-icon">
+ <script src="https://sheet2site.com/assets/js/page.min.js"></script>
+ <script src="https://sheet2site.com/assets/js/v3/common_functions.js"></script>
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+ <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+ <style>
+	
+	 </style>
+ </head>
+ <body class="demo-header "  onload="webload();">
+
+
+<!-----------側邊選單(始)---------------->
+
+<div id="leftcanvas" class="sidenav">
+	<img style="width: 180px; height: auto;" src="image/catstore.png">
+	<button class="sidenav-button" onclick="ClickSideNavBtn(this); maincanvaChoose(this); ShowAnnouncement();" value="最新消息" id="announcement"><b>最新消息</b></button>
+	<button class="sidenav-button" onclick="ClickSideNavBtn(this); maincanvaChoose(this);" value="商品一覽" id="buy"><b>商品一覽</b></button>
+	<button class="sidenav-button" onclick="ClickSideNavBtn(this); maincanvaChoose(this);" value="寵物一覽" id="pet"><b>寵物一覽</b></button>
+	<button class="sidenav-button" onclick="ClickSideNavBtn(this); maincanvaChoose(this);" value="遊戲攻略" id="money"><b>遊戲攻略</b></button>
+	<button class="sidenav-button" onclick="ClickSideNavBtn(this); maincanvaChoose(this);" value="精彩活動" id="activity"><b>精彩活動</b></button>
+	<button class="sidenav-button" onclick="ClickSideNavBtn(this); maincanvaChoose(this);" value="聯絡我們" id="contact"><b>聯絡我們</b></button>
+	<button class="sidenav-button" onclick="ClickSideNavBtn(this); maincanvaChoose(this);" value="留言版" id="message"><b>留言版</b></button>
+	
+
+	<div style="border-color:#fbbc04;">
+	<span>現在時間</span>
+	<div class="chart_sd y"><div id="clock_c"></div>
+	<div class="cweek"><strong><span></span></strong><i></i><em></em></div>
+	<div id="date_c"></div>
+	<script type="text/javascript">
+	function Appendzero(obj) {
+	if(obj<10) return "0" +""+ obj;
+	else return obj;
+	}
+	function changeClock() {
+	var d = new Date();
+	document.getElementById("date_c").innerHTML = Appendzero(d.getFullYear()) + "-" + Appendzero((d.getMonth() + 1)) + "-" + Appendzero(d.getDate());
+	document.getElementById("clock_c").innerHTML = Appendzero(d.getHours()) + ":" + Appendzero(d.getMinutes()) + ":" + Appendzero(d.getSeconds());
+	}
+	window.setInterval(changeClock, 1000);
+	</script>
+	</div>
+	</div>
+
+
+
+</div>
+
+<!-----------側邊選單(末)---------------->
+ 
+ <header id="maincanvas2" style="transition: 0.5s;" data-overlay="2"  loading="lazy" data-background-image="https://cdn.jsdelivr.net/gh/Faxey/Cat_Store/props/cover.jpg" class="lazyload t-white " >
+	
+	<input id="nav-toggle" type="checkbox" >
+	<label for="nav-toggle" class="ham" onclick="openNav()">
+	  <div class="ham-origin" >
+		<div class="ham-bar ham-bar--top"></div>
+		<div class="ham-bar ham-bar--middle"></div>
+		<div class="ham-bar ham-bar--bottom"></div>
+		<div class="hamtext"><b id="hamtext">最新消息</b></div>
+	  </div>
+	</label>
+<div class="container mt-8 mb-8 text-center">
+
+ <div class="row h-100">
+ <div class="col-lg-8 mx-auto align-self-center">
+ <h1 class=" display-3 my-6 text-white " style="text-shadow: 1px 1px 1px rgba(0,0,0,0.35);"><strong class="header-text">小貓雜貨店</strong></h1>
+ <p class="lead-3 header-p-text"></p>
+ 
+ </div>
+ </div>
+ </div>
+ </header>
+ 
+
+ <div id="maincanvas" style="transition: 0.5s;">
+ 
+
+
+
+
+
+
+
+
+<!--------------------最新公告---------------------------->
+<div class="container maincanva"  id="canva-announcement">
+	
+	<header class="section-header"></header>
+
+
+
+	<mat-card _ngcontent-xcq-c264="" appmaterialelevation="" class="mat-card mat-focus-indicator mat-elevation" style="background-color: rgb(255, 255, 255);">
+	<div data-provide="shuffle">
+	<div class="accordion shadow-5" data-shuffle="list" id="accordion-job">
+	<div id="announcement_status"></div>
+
+	</div>
+	</div>
+	</mat-card>
+	</div>
+
+<!--------------------最新公告---------------------------->
+
+<!---------------------------------------------------------商品一覽(始)--------------------------------------------------------------->
+ <section class="section overflow-hidden maincanva" id="canva-buy" >
+<!---------------------------------------------------------加入好友訂購(始)--------------------------------------------------------------->
+	<section class="section overflow-hidden" style="margin-top: -60px;">
+		<div class="container-fluid">
+		<div class="row gap-y align-items-center">
+		<div class="col-md-5 mx-auto text-center">
+		<a target="_blank" href="https://lin.ee/BNuxeQG">
+		<img style="max-height: 300px;" src="https://qr-official.line.me/sid/M/068xzykb.png" alt="..." >
+		</a>
+		</div>
+		<div class="col-md-4 mx-auto">
+		<h3>QR Code</h3>
+		<br>
+		<p>快來加入好友訂購吧！</p>
+		<br>
+		<a target="_blank" href="https://lin.ee/BNuxeQG">
+		<button class="btn buttonsponoredsection px-8" style="background-color: #fbbc04; color: #ffffff;"> 加入好友
+		</button>
+		</a>
+		</div>
+		</div>
+		</div>
+		</section>
+<!---------------------------------------------------------加入好友訂購(末)--------------------------------------------------------------->
+
+ <div class="container-fluid">
+ <style>
+			   .selected-option-class {
+				font-weight: 400;
+			   }
+ 
+			   .disabled {
+				   pointer-events: none;
+					 cursor: default;
+			   }
+ 
+			 </style>
+
+
+ <div data-provide="shuffle">
+ <ul class="filters-bar nav nav-center nav-bold nav-uppercase nav-pills" data-shuffle="filter">
+ <li class="nav-item pl-1">
+ <a  class="nav-link active" name="filters" id="food" onclick="showHint('料理'); document.getElementById('arms').style.display='none'; document.getElementById('armor').style.display='none';choosefilters(this);">
+ 料理
+ </a>
+ </li>
+ <li class="nav-item pl-1">
+ <a  class="nav-link "  name="filters" id="water"  onclick="showHint('藥水'); document.getElementById('arms').style.display='none'; document.getElementById('armor').style.display='none';choosefilters(this);">
+ 藥水
+ </a>
+ </li>
+ <li class="nav-item pl-1">
+ <a  class="nav-link " name="filters"  id="stone" onclick="showHint('挖掘'); document.getElementById('arms').style.display='none'; document.getElementById('armor').style.display='none';choosefilters(this);">
+ 挖掘
+ </a>
+ </li>
+ <li class="nav-item pl-1">
+ <a  class="nav-link " name="filters"  id="wood" onclick="showHint('伐木'); document.getElementById('arms').style.display='none'; document.getElementById('armor').style.display='none';choosefilters(this);">
+ 伐木
+ </a>
+ </li>
+ <li class="nav-item pl-1">
+ <a  class="nav-link " name="filters"  id="hunt" onclick="showHint('狩獵'); document.getElementById('arms').style.display='none'; document.getElementById('armor').style.display='none';choosefilters(this);">
+ 狩獵
+ </a>
+ </li>
+ <li class="nav-item pl-1">
+ <a  class="nav-link " name="filters"    onclick = "document.getElementById('arms').style.display='';choosefilters(this); document.getElementById('armor').style.display='none';">
+ 武器
+ </a>
+ </li>
+ <li class="nav-item pl-1">
+ <a  class="nav-link " name="filters"   onclick = "document.getElementById('armor').style.display='';choosefilters(this); document.getElementById('arms').style.display='none';">
+ 防具
+ </a>
+ </li>
+ <li class="nav-item pl-1">
+ <a  class="nav-link " name="filters" id="gem"  onclick="showHint('寶石'); document.getElementById('arms').style.display='none'; document.getElementById('armor').style.display='none';choosefilters(this);">
+ 寶石
+ </a>
+ </li>
+
+ <li class="nav-item pl-1">
+ <a  class="nav-link " name="filters" id="prop"  onclick="showHint('道具'); document.getElementById('arms').style.display='none'; document.getElementById('armor').style.display='none';choosefilters(this);">
+ 道具
+ </a>
+ </li>
+ <style>
+			 .filters-bar {
+				 margin: auto;
+				 background-color: #fff;
+				 border-radius: 4px;
+				 padding-top: 15px;
+				 padding-bottom: 15px;
+				 box-shadow: 1px 1px 14px -4px rgba(0, 0, 0, 0.4);
+			 }
+		 </style>
+ <br>
+ </ul>
+
+ <ul class="filters-bar nav nav-center nav-bold nav-uppercase nav-pills" data-shuffle="filter" style="display:none" id="arms" >
+	<li class="nav-item pl-1">
+	<a class="nav-link " name="filters-arms" id="sword" onclick="showHint('劍') ; choosefilters(this);">
+	劍
+	</a>
+	</li>
+	<li class="nav-item pl-1">
+	<a  class="nav-link "  name="filters-arms" id="ax" onclick="showHint('斧') ; choosefilters(this);">
+	斧
+	</a>
+	</li>
+	<li class="nav-item pl-1">
+	<a  class="nav-link "  name="filters-arms" id="bow" onclick="showHint('弓') ; choosefilters(this);">
+	弓
+	</a>
+	</li>
+	<li class="nav-item pl-1">
+	<a  class="nav-link "  name="filters-arms" id="staff" onclick="showHint('杖') ; choosefilters(this);">
+	杖
+	</a>
+	</li>
+	<li class="nav-item pl-1">
+	<a  class="nav-link "  name="filters-arms" id="spear" onclick="showHint('槍') ; choosefilters(this);">
+	槍
+	</a>
+	</li>
+	<li class="nav-item pl-1">
+	<a  class="nav-link "  name="filters-arms" id="knife" onclick="showHint('小刀') ; choosefilters(this);">
+	小刀
+	</a>
+	</li>
+	<li class="nav-item pl-1">
+	<a  class="nav-link "  name="filters-arms" id="boomerang" onclick="showHint('迴力鏢') ; choosefilters(this);">
+	迴力鏢
+	</a>
+	</li>
+	<style>
+				.filters-bar {
+					margin: auto;
+					background-color: #fff;
+					border-radius: 4px;
+					padding-top: 15px;
+					padding-bottom: 15px;
+					box-shadow: 1px 1px 14px -4px rgba(0, 0, 0, 0.4);
+				}
+			</style>
+	<br>
+	</ul>
+
+	<ul class="filters-bar nav nav-center nav-bold nav-uppercase nav-pills" data-shuffle="filter" style="display:none" id="armor" >
+		<li class="nav-item pl-1">
+		<a class="nav-link " id="hat"  name="filters-armor"  onclick="showHint('帽子') ; choosefilters(this);">
+		帽子
+		</a>
+		</li>
+		<li class="nav-item pl-1">
+		<a  class="nav-link " id="cloth" name="filters-armor"  onclick="showHint('衣服') ; choosefilters(this);">
+		衣服
+		</a>
+		</li>
+		<li class="nav-item pl-1">
+		<a  class="nav-link " id="robe" name="filters-armor"  onclick="showHint('袍') ; choosefilters(this);">
+		袍
+		</a>
+		</li>
+		<li class="nav-item pl-1">
+		<a  class="nav-link " id="shoe" name="filters-armor"  onclick="showHint('鞋子') ; choosefilters(this);">
+		鞋子
+		</a>
+		</li>
+		<li class="nav-item pl-1">
+		<a  class="nav-link " id="helmet" name="filters-armor"  onclick="showHint('頭盔') ; choosefilters(this);">
+		頭盔
+		</a>
+		</li>
+		<li class="nav-item pl-1">
+		<a  class="nav-link " id="armor" name="filters-armor"  onclick="showHint('鎧甲') ; choosefilters(this);">
+		鎧甲
+		</a>
+		</li>
+		<li class="nav-item pl-1">
+		<a  class="nav-link " id="shield" name="filters-armor"  onclick="showHint('盾牌') ; choosefilters(this);">
+		盾牌
+		</a>
+		</li>
+		<li class="nav-item pl-1">
+		<a  class="nav-link " id="boots" name="filters-armor"  onclick="showHint('靴子') ; choosefilters(this);">
+		靴子
+		</a>
+		</li>
+		<style>
+					.filters-bar {
+						margin: auto;
+						background-color: #fff;
+						border-radius: 4px;
+						padding-top: 15px;
+						padding-bottom: 15px;
+						box-shadow: 1px 1px 14px -4px rgba(0, 0, 0, 0.4);
+					}
+				</style>
+		<br>
+		</ul>
+	
+	
+	 </br>
+
+ </br>
+ 
+
+
+
+
+
+
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-dialog-scrollable">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h3 class="modal-title" > <a style="color: #fbbc04;" ><b id="modal-title">漢堡</b></a></h3>
+                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                     &times;
+                 </button>
+             </div>
+             <div class="modal-body">
+				<div class="container"> 
+					
+					<div class="col-12">
+					<div class="image-wrapper float-left pr-5">
+					
+					<img loading="lazy" class="lazyloaded" style="max-width: 400px;  width:100%; max-height: 300px; " width="300px" id="modal-image" src="">
+					
+					<div class="pt-4 pb-0">
+					<div style="background-color: #e9ecf0; color: #3a3a3a;; margin-right: 5px;" class="badge" id="modal-filters"></div>
+					</div>
+					</div>
+					<div class="single-post-content-wrapper">
+					<div>
+
+					<p class="lead-1 text-light p-0 m-0">
+					</p>
+					</div>
+					<div class="extra-fields-all">
+					<div class="extra-field" style=" padding-left: 3px ;">
+					<b class="extra-field-column-name" >售價 : </b> 
+					<span class="extra-field-value" id="modal-price"><span>
+					</span></span></div> 
+					<div class="extra-field" style=" padding-left: 3px ;">
+					<b class="extra-field-column-name" id="modal-remark-gem">備註 : </b> 
+					<span class="extra-field-value"id="modal-remark"><span>
+					</span></span></div>
+					<div class="extra-field" style=" padding-left: 3px ;">
+					<b class="extra-field-column-name" >現貨 : </b> 
+					<span class="extra-field-value" id="modal-spotgoods"><span>
+						
+					</span></span></div></div>
+					</div>
+					</div>
+					<br>
+
+					<span>
+					<b text-align:center;>訂購數量</b><br>
+					<a class="product-media" style="cursor: pointer;" target="_blank" >
+						<button class="btn " style="background-color: #fbbc04; color: #ffffff;height: 35px" onclick="calculate('reduce','oder-num',10);">-10</button>
+						<button class="btn " style="background-color: #fbbc04; color: #ffffff;height: 35px" onclick="calculate('reduce','oder-num',1);">-1</button>
+						<input type="number"  ID="oder-num" style="width: 30%; height: 35px; border-color:#fbbc04;" oninput="if(value<0)value=0" value="0" onkeyup="Subtotal('Subtotal');">
+						<button class="btn " style="background-color: #fbbc04; color: #ffffff;height: 35px;" onclick="calculate('add','oder-num',1);">+1</button>
+						<button class="btn " style="background-color: #fbbc04; color: #ffffff;height: 35px" onclick="calculate('add','oder-num',10);">+10</button>
+					</a>
+
+					</span>
+					<h4 class="modal-title" > <a style="color: #dda600;" ><b id="modal-title">小計 : </b> <b id="Subtotal">0</b></a></h4>
+
+					</div>
+             </div>
+			 
+             <div class="modal-footer">
+				
+                 <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                 </button>
+                 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="addcart()" id="addcartbtn" >
+                     確認
+                 </button>
+             </div>
+         </div><!-- /.modal-content -->
+     </div><!-- /.modal -->
+ </div>
+ 
+
+ 
+ <!---搜尋欄位
+ 
+ <form class="form col-md-6 col-xl-4 pt-6 pb-6 mx-auto" action="/api/v3/index.php/" method="get">
+ <div class="input-group">
+ <div class="input-group-prepend">
+ <div class="input-group-text">🔍</div>
+ </div>
+ <input name="search" class="form-control search-bar" type="text" placeholder="品名" value="">
+ <input type="hidden" name="key" value="1L3nBOko__5Xnjxag1W7cLOasDsajorWxzd4aiKxc6F0" /><input type="hidden" name="e" value="" />
+ </div>
+ </form>
+ 
+ -->
+ <div class="text-center">
+ <p class="filter-count-text"></p>
+ </div>
+ </br>
+
+ <div id="order_status"></div>
+ </div>
+ </div>
+ </section>
+<!---------------------------------------------------------商品一覽(末)--------------------------------------------------------------->
+
+
+
+<!-------------------------還沒完成------------------------->
+<section class="section overflow-hidden maincanva" id="canva-pet" style="text-align:center" ><b style="font-size: 50px;">暫未開放，敬請期待</b></section>
+<section class="section overflow-hidden maincanva" id="canva-money" style="text-align:center" ><b style="font-size: 50px;">暫未開放，敬請期待</b></section>
+
+<section class="section overflow-hidden maincanva" id="canva-activity" style="text-align:center" ><b style="font-size: 50px;">暫未開放，敬請期待</b>
+	<a class="product-media" style="cursor: pointer;" target="_blank" href="https://catgrocery.github.io/Activity_PK/">
+		<div loading="lazy" data-background-image="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" class="card p-2 text-white bg-img lazyloaded" style="height: 200px; background-size: cover; background-image: url(&quot;https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg&quot;);" data-overlay="6" data-scrim-top="8">
+		<div class="row">
+		<div class="col-4 flex-grow-0">
+		<small style=" color: white; text-shadow: 1px 1px 1px rgba(0,0,0,0.35);">pizza</small>
+		</div>
+		<div class="col-4 offset-md-4 text-left">
+		<small style=" color: white;  text-shadow: 1px 1px 1px rgba(0,0,0,0.35);" class="text-left"></small>
+		</div>
+		</div>
+		<div class="card-body text-center d-flex flex-grow-1 align-items-center justify-content-center">
+		<div>
+		<h5 style="text-shadow: 1px 1px 1px rgba(0,0,0,0.35);" class="card-title mb-0"><strong>Diavola pizza</strong></h5>
+		<small style=" color: white; text-shadow: 1px 1px 1px rgba(0,0,0,0.35);"></small>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-4 flex-grow-0">
+		<small style=" color: white; text-shadow: 1px 1px 1px rgba(0,0,0,0.35);"></small>
+		</div>
+		<div class="col-4 offset-md-4 text-left">
+		<small style=" color: white;  text-shadow: 1px 1px 1px rgba(0,0,0,0.35);" class="text-left"></small>
+		</div>
+		</div>
+		</div>
+		</a>
+</section>
+
+<section class="section overflow-hidden maincanva" id="canva-contact" style="text-align:center" ><b style="font-size: 50px;">暫未開放，敬請期待</b></section>
+<section class="section overflow-hidden maincanva" id="canva-message" style="text-align:center" ><b style="font-size: 50px;">暫未開放，敬請期待</b></section>
+
+
+
+
+
+
+
+<!---------------------------------------------------------底部加入好友(始)--------------------------------------------------------------->
+ <section class="section overflow-hidden">
+
+ <div class="row gap-y align-items-center">
+ <div class="col-md-5 mx-auto text-center">
+ <img style="max-height: 300px;" src="https://cdn.jsdelivr.net/gh/Faxey/Cat_Store/props/pic1.jpg" alt="..." >
+ </div>
+ <div class="col-md-4 mx-auto">
+ <h3>小貓雜貨店</h3>
+ <br>
+ <p style="font-size: 15px;font-weight: 400;">我們不是工作室，<br>我們只是一群熱愛魔力的玩家，<br>同時也希望能讓魔力玩家能夠有更好的遊戲體驗~<br>歡迎有興趣的人找我們一起舉辦遊戲活動喔!!</p>
+ <br>
+ <a target="_blank" href="https://lin.ee/BNuxeQG">
+ <button class="btn buttonsponoredsection px-8" style="background-color: #fbbc04; color: #ffffff;"> 馬上訂購
+ </button>
+ </a>
+ </div>
+ </div>
+ </section>
+ <!---------------------------------------------------------底部加入好友(末)--------------------------------------------------------------->
+
+ <div style="margin: 2rem;">
+
+ </div>
+ <button class="js-back-to-top back-to-top" title="回到頂部">&#65085;</button>
+ <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+
+ 
+ 
+  
+
+
+ <script type="text/javascript">
+
+		   $(window).scroll(function() {
+			 lazyload();
+		   });
+ 
+ 
+
+		   function lazyload() {
+			 var windowHeight=windowSize().height;
+			 var scrollTop=$(window).scrollTop();
+			 $('.lazyload').each(function() {
+			   var edge=$(this).offset().top;
+			   if(
+ 
+				 (
+				   (edge+300)
+					 >=
+				   scrollTop
+				 )
+ 
+				   &&
+				 (
+				   (edge)
+					 <=
+				   (scrollTop+windowHeight*2)
+				 )
+ 
+			   ) {
+				 if($(this).is(':visible')) {
+ 
+				   if($(this).data('background-image')) {
+					 $(this).css('background-image','url('+$(this).data('background-image')+')');
+				   }
+				   else if($(this).data('srcset')) {
+					 $(this).prop('srcset',$(this).data('srcset'));
+				   }
+				   else if($(this).data('src')) {
+					 $(this).prop('src',$(this).data('src'));
+				   }
+				   $(this).removeClass('lazyload').addClass('lazyloaded');
+				 }
+			   }
+			 });
+		   }
+
+
+		   function windowSize() {
+			 var e = window, a = 'inner';
+			 if (!('innerWidth' in window )) {
+				 a = 'client';
+				 e = document.documentElement || document.body;
+			 }
+			 return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
+		   }
+
+		   $(function() {
+			 lazyload();
+		   });
+
+ 
+	 </script>
+
+
+
+<div class="modal fade" id="myModal_cart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title" > <a style="color: #fbbc04;" ><b>購物車</b></a></h3>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+			</div>
+			<div class="modal-body">
+			   <div class="container"> 
+				</div>
+ 
+			   <!--<div class="row justify-content-center pb-4" data-shuffle="item" data-groups="pasta"><div class="col-lg-2 mx-auto text-left"><a class="product-media" style="display: flex; justify-content: center;"><img loading="lazy" class="lazyloaded" style="width:100%; max-height: 200px; object-fit: contain; object-position: center " data-src="https://cdn.jsdelivr.net/gh/Faxey/Cat_Store/props/props87.png" alt="" src="https://cdn.jsdelivr.net/gh/Faxey/Cat_Store/props/props87.png"></a></div><div class="col-xs-12  col-lg-4 mx-auto"><div class="extra-fields-all"> <div class="extra-field" style="background-color: ; color: ; font-size: 14px; padding-left: 0px ;"><b class="extra-field-column-name">價格: </b> <span class="extra-field-value">600  / 組<span></span></span></div> <div class="extra-field" style="background-color: ; color: ; font-size: 14px; padding-left: 0px ;"><b class="extra-field-column-name">備註: </b> <span class="extra-field-value">魔力值回復約200點。<span></span></span></div> <div class="extra-field" style="background-color: ; color: ; font-size: 14px; padding-left: 0px ;"><b class="extra-field-column-name">現貨: </b> <span class="extra-field-value">0<span></span></span></div></div><div style="background-color: #e9ecf0; color: #3a3a3a;; margin-right: 5px;" class="badge">料理</div></div><div class="col-xs-12 col-lg-2 mx-auto"><a target="_blank" class="product-media" style="display: flex; justify-content: center;" href="https://lin.ee/BNuxeQG"></a></div></div>-->
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">取消
+				</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">確認
+				</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
+
+ <a  class="super-button"   data-toggle="modal" data-target="#myModal_cart" onclick="showcart()">
+	 <img width="40px" height="40px" src="image/cart_icon.png">
+ </a>
+ 
+
+
+ <style>
+	 .super-button {display: block}
+	 </style>
+
+</div>
+ </body>
+ 
+ </html>
